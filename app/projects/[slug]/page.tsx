@@ -56,9 +56,17 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {/* Photo placeholder */}
       <section style={{ padding: '0 48px 80px' }}>
-        {project.slug === 'vox' && (
-  <img src="/images/vox.png" alt="Vox robot" style={{ width: '100%', borderRadius: 4, border: '1px solid var(--border)' }} />
-)}
+        {project.slug === 'vox'
+  ? <img src="/images/vox.jpg" alt="Vox robot" style={{ width: '100%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  : project.slug === 'ouija'
+  ? <img src="/images/ouija.jpg" alt="Ouija board puzzle" style={{ width: '100%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  : (
+    <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, minHeight: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, color: 'var(--muted)', fontSize: 13 }}>
+      <span style={{ fontSize: 48 }}>{project.emoji}</span>
+      <span>Add photos here</span>
+    </div>
+  )
+}
       </section>
 
       {/* Other projects */}
