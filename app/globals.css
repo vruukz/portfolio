@@ -82,7 +82,7 @@ body::before {
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   /* Nav */
-  nav { display: none !important; }
+  
   header { padding: 16px 20px !important; }
 
   /* Hero */
@@ -121,4 +121,7 @@ body::before {
 
   /* Footer */
   footer { flex-direction: column !important; gap: 8px !important; text-align: center !important; padding: 24px !important; }
+  .desktop-nav { display: none !important; }
+.mobile-menu-btn { display: flex !important; }
+.nav-subtitle { display: none !important; }
 }

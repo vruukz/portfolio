@@ -60,8 +60,8 @@ export default function Home() {
           in between.
         </h1>
 
-        <div className="hero-meta" style={{ display: 'flex', gap: 48, alignItems: 'flex-end' }}>
-          <p style={{ maxWidth: 420, color: 'var(--muted)', fontSize: 13, lineHeight: 1.8 }}>
+        <div className="hero-meta" style={{ display: 'flex', flexDirection: 'column', gap: 24, alignItems: 'flex-start' }}>
+          <p style={{ maxWidth: 760, color: 'var(--muted)', fontSize: 18, lineHeight: 1.8 }}>
             <strong style={{ color: 'var(--text)', fontWeight: 400 }}>Automation & Robotics Engineer</strong> transitioning into AI and software development.
             Currently pursuing a Master's in Artificial Intelligence in Industrial Production
             at the Technical University of Cluj-Napoca. I build things that move, think, and sometimes both.
@@ -213,8 +213,8 @@ export default function Home() {
       {/* ABOUT */}
       <section id="about" className="about-section" style={{ padding: '120px 48px', borderTop: '1px solid var(--border)' }}>
         <div>
-          <p style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>About me</p>
-          <p style={{ fontFamily: "'Instrument Serif'", fontSize: 28, lineHeight: 1.4 }}>
+          <p style={{ fontSize: 20, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>About me</p>
+          <p style={{ fontFamily: "'Instrument Serif'", fontSize: 62, lineHeight: 1.4 }}>
             Engineer by training,<br />
             <em style={{ color: 'var(--accent2)', fontStyle: 'italic' }}>builder</em> by nature.
           </p>
