@@ -1,4 +1,5 @@
 export type Project = {
+   github?: string
   slug: string
   num: string
   label?: string
@@ -34,7 +35,8 @@ export const projects: Project[] = [
 
 The project currently supports voice commands and manual movement control. The roadmap includes computer vision for object and face recognition, and eventually self-navigation using ultrasonic sensors and computer vision.
 
-Building Vox meant working across the full stack: mechanical design, electronics, embedded programming, and AI integration. It's the project I'm most proud of.`,
+Building Vox meant working across the full stack: mechanical design, electronics, embedded programming, and AI integration. It's the project I'm most proud of.`, 
+github: 'https://github.com/vruukz/Vox-Robot',
     tags: ['Python', 'AI Integration', 'Raspberry Pi', '3D Printing', 'Blender', 'Voice Assistant'],
   },
   {
@@ -66,7 +68,7 @@ The whole thing runs on an Arduino, with custom LED timing logic programmed in C
     slug: 'escape-room-letterbox',
     num: '04',
     label: 'Client Work',
-    name: 'Motorised Letter Dispenser — Escape Room',
+    name: 'Motorized Letter Dispenser — Escape Room',
     emoji: '📬',
     category: 'major',
     shortDesc: 'An automated letter box controlled by Arduino: press a button and a motor shoots out a letter. Built for a local escape room.',

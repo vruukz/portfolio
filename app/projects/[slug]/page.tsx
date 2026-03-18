@@ -40,10 +40,28 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           {project.emoji} {project.name}
         </h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          {project.tags.map(t => (
-            <span key={t} style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 12px', border: '1px solid var(--accent)', color: 'var(--accent)', borderRadius: 2 }}>{t}</span>
-          ))}
-        </div>
+  {project.tags.map(t => (
+    <span key={t} style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 12px', border: '1px solid var(--accent)', color: 'var(--accent)', borderRadius: 2 }}>{t}</span>
+  ))}
+</div>
+
+{project.github && (
+  <a href={project.github} target="_blank" rel="noopener noreferrer" style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 24,
+    padding: '12px 24px',
+    border: '1px solid var(--border)',
+    color: 'var(--accent)',
+    textDecoration: 'none',
+    fontSize: 12,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
+  }}>
+    ↗ View on GitHub
+  </a>
+)}
       </section>
 
       {/* Content */}
@@ -53,9 +71,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         ))}
       </section>
 
-      {/* Photo placeholder */}
       {project.slug === 'vox'
-  ? <img src="/images/vox.png" alt="Vox robot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  ? <div style={{ display: 'flex', flexDirection: 'row', gap: 16, padding: '0 48px' }}>
+      <img src="/images/vox.png" alt="Vox robot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+      <img src="/images/vox2.png" alt="Vox robot detail" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+    </div>
   : project.slug === 'escape-room-ouija'
   ? <img src="/images/ouija.jpeg" alt="Ouija board puzzle" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
   : null
