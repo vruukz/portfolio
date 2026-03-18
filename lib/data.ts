@@ -99,18 +99,6 @@ The mechanism is triggered by a single button press — when activated, the moto
 Plug it in, it just works — no drivers, no software. The whole thing took an afternoon and cost about €5 in parts. These are my favourite kind of projects: small, fast, solves a real problem.`,
     tags: ['Arduino', 'HID', 'C++', '3D Printing', 'DIY'],
   },
-  {
-    slug: 'smart-car',
-    num: '07',
-    name: 'Smart Car Modifications',
-    emoji: '🚗',
-    category: 'tinkering',
-    shortDesc: 'Custom electronic car mods — bespoke lighting systems, audio upgrades, and custom control electronics.',
-    longDesc: `An ongoing series of custom electronic modifications to my car. This includes custom RGB lighting with Arduino-controlled sequences, audio system upgrades, and various control electronics wired into the car's existing systems.
-
-Working with automotive electronics is a great way to learn about real-world 12V systems, CAN bus, and the constraints of building things that have to work reliably in a vehicle environment.`,
-    tags: ['Arduino', 'Electronics', 'Automotive', 'DIY'],
-  },
 ]
 
 export const blogPosts: BlogPost[] = [
