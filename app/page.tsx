@@ -60,7 +60,7 @@ export default function Home() {
           in between.
         </h1>
 
-        <div style={{ display: 'flex', gap: 48, alignItems: 'flex-end' }}>
+        <div className="hero-meta" style={{ display: 'flex', gap: 48, alignItems: 'flex-end' }}>
           <p style={{ maxWidth: 420, color: 'var(--muted)', fontSize: 13, lineHeight: 1.8 }}>
             <strong style={{ color: 'var(--text)', fontWeight: 400 }}>Automation & Robotics Engineer</strong> transitioning into AI and software development.
             Currently pursuing a Master's in Artificial Intelligence in Industrial Production
@@ -89,41 +89,37 @@ export default function Home() {
           <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em' }}>{majorProjects.length} projects</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
-          {majorProjects.map((p, i) => (
-            <Link key={p.slug} href={`/projects/${p.slug}`} style={{
-              gridColumn: i === 0 ? 'span 2' : undefined,
-              background: 'var(--surface)',
-              border: '1px solid var(--border)',
-              padding: i === 0 ? '56px' : '40px',
-              position: 'relative',
-              overflow: 'hidden',
-              color: 'inherit',
-              textDecoration: 'none',
-              display: 'flex',
-              flexDirection: i === 0 ? 'row' : 'column',
-              gap: i === 0 ? 48 : 16,
-              transition: 'border-color 0.3s, background 0.3s',
-            }}
-              className="card-hover"
-            >
-              {i === 0 && (
-                <div style={{ width: 260, flexShrink: 0, borderRadius: 4, overflow: 'hidden', minHeight: 180 }}>
-  {p.slug === 'vox'
-    ? <img src="/images/vox.png" alt="Vox robot" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-    : <div style={{ width: '100%', height: '100%', background: 'var(--bg)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 64 }}>{p.emoji}</div>
-  }
-</div>
-              )}
-              <div style={{ flex: 1 }}>
-                <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em' }}>{p.num}{p.label ? ` — ${p.label}` : ''}</span>
-                <h3 style={{ fontFamily: "'Instrument Serif'", fontSize: i === 0 ? 42 : 28, lineHeight: 1.1, margin: '10px 0 12px' }}>{p.name}</h3>
-                <p style={{ color: 'var(--muted)', fontSize: 13, lineHeight: 1.8, maxWidth: 460, marginBottom: 24 }}>{p.shortDesc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {p.tags.map(t => (
-                    <span key={t} style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', border: '1px solid var(--border)', color: 'var(--muted)', borderRadius: 2 }}>{t}</span>
-                  ))}
-                </div>
+        <div className="projects-grid">
+  {majorProjects.map((p, i) => (
+    <Link key={p.slug} href={`/projects/${p.slug}`}
+      className={`card-hover ${i === 0 ? 'project-card-featured' : 'project-card-regular'}`}
+      style={{
+        background: 'var(--surface)',
+        border: '1px solid var(--border)',
+        position: 'relative',
+        overflow: 'hidden',
+        color: 'inherit',
+        textDecoration: 'none',
+        transition: 'border-color 0.3s, background 0.3s',
+      }}
+    >
+      {i === 0 && (
+        <div className="featured-image">
+          {p.slug === 'vox'
+            ? <img src="/images/vox.png" alt="Vox robot" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            : <div style={{ width: '100%', height: '100%', background: 'var(--bg)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 64 }}>{p.emoji}</div>
+          }
+        </div>
+      )}
+      <div style={{ flex: 1 }}>
+        <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em' }}>{p.num}{p.label ? ` — ${p.label}` : ''}</span>
+        <h3 style={{ fontFamily: "'Instrument Serif'", fontSize: i === 0 ? 42 : 28, lineHeight: 1.1, margin: '10px 0 12px' }}>{p.name}</h3>
+        <p style={{ color: 'var(--muted)', fontSize: 13, lineHeight: 1.8, maxWidth: 460, marginBottom: 24 }}>{p.shortDesc}</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          {p.tags.map(t => (
+            <span key={t} style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', border: '1px solid var(--border)', color: 'var(--muted)', borderRadius: 2 }}>{t}</span>
+          ))}
+        </div>
                 <div style={{ paddingTop: 16, borderTop: '1px solid var(--border)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: 24 }}>
                   View project →
                 </div>
@@ -139,7 +135,7 @@ export default function Home() {
           <h2 style={{ fontFamily: "'Instrument Serif'", fontSize: 32, fontStyle: 'italic' }}>Tinkering & experiments</h2>
           <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em' }}>Small builds</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+<div className="tinkering-grid">
           {tinkeringProjects.map(p => (
             <Link key={p.slug} href={`/projects/${p.slug}`} style={{
               background: 'var(--surface)',
@@ -179,18 +175,18 @@ export default function Home() {
             { year: '2022', role: 'Automation Intern', org: 'VCST Automotive Parts — Alba Iulia', desc: 'Supported senior engineers implementing control logic for gear production machinery. Reported on equipment efficiency and automation bottlenecks.' },
             { year: '2020–2024', role: "Bachelor's — Robotics (English programme)", org: 'Technical University of Cluj-Napoca', desc: 'Four-year English-language robotics engineering programme. Graduated 2024.' },
           ].map(item => (
-            <div key={item.year} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: 40, padding: '36px 40px', background: 'var(--surface)', border: '1px solid var(--border)', transition: 'border-color 0.3s' }}
-              className="card-hover">
-              <div>
-                <span style={{ fontFamily: "'Instrument Serif'", fontSize: 32, color: 'var(--accent2)', lineHeight: 1, display: 'block' }}>{item.year}</span>
-                {item.sub && <span style={{ fontSize: 13, color: 'var(--accent)', fontFamily: 'var(--mono)' }}>{item.sub}</span>}
-              </div>
-              <div>
-                <div style={{ fontSize: 14, color: 'var(--text)', marginBottom: 6 }}>{item.role}</div>
-                <div style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>{item.org}</div>
-                <div style={{ color: 'var(--muted)', fontSize: 12, lineHeight: 1.8 }}>{item.desc}</div>
-              </div>
-            </div>
+            <div key={item.year} className="card-hover timeline-item"
+  style={{ background: 'var(--surface)', border: '1px solid var(--border)', transition: 'border-color 0.3s' }}>
+  <div>
+    <span style={{ fontFamily: "'Instrument Serif'", fontSize: 32, color: 'var(--accent2)', lineHeight: 1, display: 'block' }}>{item.year}</span>
+    {item.sub && <span style={{ fontSize: 13, color: 'var(--accent)', fontFamily: 'var(--mono)' }}>{item.sub}</span>}
+  </div>
+  <div>
+    <div style={{ fontSize: 14, color: 'var(--text)', marginBottom: 6 }}>{item.role}</div>
+    <div style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>{item.org}</div>
+    <div style={{ color: 'var(--muted)', fontSize: 12, lineHeight: 1.8 }}>{item.desc}</div>
+  </div>
+</div>
           ))}
         </div>
       </section>
@@ -200,8 +196,8 @@ export default function Home() {
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 40, borderBottom: '1px solid var(--border)', paddingBottom: 24 }}>
           <h2 style={{ fontFamily: "'Instrument Serif'", fontSize: 32, fontStyle: 'italic' }}>Certifications</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
-          {certifications.map(c => (
+        <div className="certs-grid">
+        {certifications.map(c => (
             <div key={c.name} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '32px 40px', display: 'flex', gap: 20, alignItems: 'flex-start' }} className="card-hover">
               <span style={{ fontSize: 32, flexShrink: 0 }}>{c.icon}</span>
               <div>
@@ -215,7 +211,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" style={{ padding: '120px 48px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+      <section id="about" className="about-section" style={{ padding: '120px 48px', borderTop: '1px solid var(--border)' }}>
         <div>
           <p style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>About me</p>
           <p style={{ fontFamily: "'Instrument Serif'", fontSize: 28, lineHeight: 1.4 }}>
