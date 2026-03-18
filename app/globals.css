@@ -123,5 +123,4 @@ body::before {
   footer { flex-direction: column !important; gap: 8px !important; text-align: center !important; padding: 24px !important; }
   .desktop-nav { display: none !important; }
 .mobile-menu-btn { display: flex !important; }
-.nav-subtitle { display: none !important; }
 }
