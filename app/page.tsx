@@ -11,12 +11,16 @@ const certifications = [
     issuer: 'Bittnet Systems',
     year: '2026',
     icon: '🔐',
+    slug: 'cybersecurity',
+    image: '/images/cyber.png',
   },
   {
     name: 'Database Design and Programming with SQL',
     issuer: 'Oracle Academy',
     year: '2020',
     icon: '🗄️',
+    slug: 'oracle-sql',
+    image: '/images/oracle.png',
   },
 ]
 
@@ -192,20 +196,20 @@ export default function Home() {
       </section>
 
       {/* CERTIFICATIONS */}
-      <section style={{ padding: '0 48px 120px' }}>
+      <section id="certifications" style={{ padding: '0 48px 120px' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 40, borderBottom: '1px solid var(--border)', paddingBottom: 24 }}>
           <h2 style={{ fontFamily: "'Instrument Serif'", fontSize: 32, fontStyle: 'italic' }}>Certifications</h2>
         </div>
         <div className="certs-grid">
         {certifications.map(c => (
-            <div key={c.name} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '32px 40px', display: 'flex', gap: 20, alignItems: 'flex-start' }} className="card-hover">
+            <Link key={c.name} href={`/certifications/${c.slug}`} style={{ background: 'var(--surface)', border: '1px solid var(--border)', padding: '32px 40px', display: 'flex', gap: 20, alignItems: 'flex-start', textDecoration: 'none', color: 'inherit', position: 'relative' }} className="card-hover">
               <span style={{ fontSize: 32, flexShrink: 0 }}>{c.icon}</span>
               <div>
                 <div style={{ fontSize: 14, color: 'var(--text)', marginBottom: 6 }}>{c.name}</div>
                 <div style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>{c.issuer}</div>
                 <div style={{ fontSize: 11, color: 'var(--muted)' }}>{c.year}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -259,8 +263,6 @@ export default function Home() {
         </h2>
         <div style={{ color: 'var(--muted)', fontSize: 13, lineHeight: 2.2 }}>
           <p>📍 Cluj-Napoca, Cluj, Romania</p>
-          <p>📧 <a href="mailto:Carpinisan.vi.andrei@student.utcluj.ro" style={{ color: 'var(--accent2)', textDecoration: 'none' }}>Carpinisan.vi.andrei@student.utcluj.ro</a></p>
-          <p>📞 <a href="tel:+40754688068" style={{ color: 'var(--accent2)', textDecoration: 'none' }}>+40 754 688 068</a></p>
         </div>
         <div style={{ display: 'flex', gap: 4, marginTop: 40 }}>
           {[

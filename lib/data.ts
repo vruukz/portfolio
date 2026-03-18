@@ -104,11 +104,11 @@ Plug it in, it just works — no drivers, no software. The whole thing took an a
 export const blogPosts: BlogPost[] = [
   {
     slug: 'potentiometer-volume-knob',
-    title: 'Building a €5 USB Volume Knob in an Afternoon',
+    title: 'Building a €11 USB Volume Knob in an Afternoon',
     date: '2026-03-10',
     excerpt: 'I wanted a physical volume knob for my laptop. Instead of buying one, I built one with an Arduino and a potentiometer in a few hours.',
     tags: ['Arduino', 'HID', 'DIY', '3D Printing'],
-    content: `# Building a €5 USB Volume Knob in an Afternoon
+    content: `# Building a €11 USB Volume Knob in an Afternoon
 
 I've always wanted a physical volume knob on my desk. The kind you just reach over and twist without touching the keyboard. They sell these for €30-60, which felt excessive for what is essentially a potentiometer and a microcontroller.
 
@@ -116,50 +116,158 @@ So I built one.
 
 ## What you need
 
-- Arduino Pro Micro (not Uno — it needs native USB HID support) — ~€4
-- A 10kΩ potentiometer — ~€0.50
-- A short USB cable
+- Arduino Uno R3 - ~€6
+- Arduino Potentiometer Module - ~€5
+- USB cable
 - Optional: 3D printed enclosure
 
 ## How it works
 
-The Arduino Pro Micro can register itself as a USB HID device — meaning the computer sees it as a keyboard, mouse, or media controller rather than a serial device. 
-
 The potentiometer outputs a value between 0 and 1023 depending on its position. The Arduino reads this, maps it to a volume range, and sends the appropriate HID media key commands to the OS.
 
-\`\`\`cpp
-#include <HID-Project.h>
+## This is the C++ Arduino code that first need to be uploaded to the Arduino:
 
-const int POT_PIN = A0;
-int lastVolume = -1;
+// Pins for motor driver
+const int ENA = 9;
+const int IN1 = 8;
+const int IN2 = 7;
+const int IN3 = 6;
+const int IN4 = 5;
+const int ENB = 10;
 
 void setup() {
-  Consumer.begin();
+  // Set all control pins as outputs
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  // Initial stop
+  stopMotors();
+
+  // Wait 5 seconds after turning on
+  delay(5000);
 }
 
 void loop() {
-  int raw = analogRead(POT_PIN);
-  int volume = map(raw, 0, 1023, 0, 100);
-  
-  if (abs(volume - lastVolume) > 1) {
-    if (volume > lastVolume) {
-      Consumer.write(MEDIA_VOLUME_UP);
-    } else {
-      Consumer.write(MEDIA_VOLUME_DOWN);
-    }
-    lastVolume = volume;
-  }
-  delay(10);
+  // Move forward for 2 seconds
+  moveForward();
+  delay(2000);
+
+  // Move backward for 2 seconds
+  moveBackward();
+  delay(2000);
+
+  // Stop for 5 seconds
+  stopMotors();
+  delay(5000);
 }
-\`\`\`
+
+void moveForward() {
+  // Left motor forward
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  // Right motor forward
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+
+  // Enable motors
+  analogWrite(ENA, 200); // Speed (0-255)
+  analogWrite(ENB, 200);
+}
+
+void moveBackward() {
+  // Left motor backward
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+
+  // Right motor backward
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+
+  // Enable motors
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+}
+
+void stopMotors() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+  analogWrite(ENA, 0);
+  analogWrite(ENB, 0);
+}
+
+## This, is the python code that needs to be ran:
+
+from ctypes import cast, POINTER
+from comtypes import CLSCTX_ALL
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+import serial
+
+// Define serial port and baud rate
+arduino_port = "COM10"  # Adjust based on your system
+baud_rate = 9600
+
+// Attempt to establish serial connection
+try:
+    ser = serial.Serial(arduino_port, baud_rate, timeout=0.05)  # Reduce timeout for faster reads
+    print("Serial connection established.")
+except serial.SerialException as e:
+    print(f"Failed to connect: {e}")
+    exit(1)
+
+// Initialize audio control interface
+devices = AudioUtilities.GetSpeakers()
+interface = devices.Activate(
+    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+volume = cast(interface, POINTER(IAudioEndpointVolume))
+
+// Initialize previous value for smoothing
+previous_volume = 0.0
+alpha = 0.1  ## Smoothing factor (0 = no smoothing, 1 = instant changes)
+
+while True:
+    if ser.in_waiting > 0:
+        try:
+            // Read potentiometer value from serial
+            raw_data = ser.read_until().decode('utf-8').strip()
+            if raw_data.isdigit():  # Check if data is numeric
+                value = int(raw_data)
+                print(f"Raw potentiometer value: {value}")
+
+                // Ensure value is within expected range
+                if 0 <= value <= 1023:
+                    # Map potentiometer value (0-1023) to volume level (0.0-1.0)
+                    new_volume = value / 1023
+
+                    // Apply smoothing
+                    smoothed_volume = alpha * new_volume + (1 - alpha) * previous_volume
+                    previous_volume = smoothed_volume
+
+                    print(f"Smoothed volume: {smoothed_volume * 100}%")
+
+                    // Set system volume
+                    volume.SetMasterVolumeLevelScalar(smoothed_volume, None)
+                else:
+                    print(f"Invalid value: {value}")
+
+        except Exception as e:
+            print(f"Error: {e}")
+
+
 
 ## The enclosure
 
-I designed a small cylindrical enclosure in Blender, printed it in about 45 minutes. Press-fit the potentiometer into the top, tucked the Arduino inside, and threaded the USB cable out the bottom.
+I designed a cubical enclosure and a knob in SolidWorks, printed it in about 30 minutes. Press-fit the potentiometer into the top, tucked the Arduino inside, and threaded the USB cable out the back.
 
-Plug it in, it just works. No drivers, no software, no configuration. Windows, Linux, Mac — all treat it as a standard media device.
+Currently, the python program needs to run for it to work, but I've set it to automatically run at windows start.
 
-**Total cost: ~€5. Total time: one afternoon.**
+**Total cost: ~€11. Total time: one afternoon.**
 
 These are my favourite kind of projects.`,
   },

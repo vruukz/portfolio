@@ -39,23 +39,23 @@ export default function Nav() {
   alignItems: 'center',
   gap: 10,
 }}>
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="28" height="28" rx="6" fill="#c8f060" fillOpacity="0.15"/>
-  <rect width="28" height="28" rx="6" stroke="#c8f060" strokeWidth="1" strokeOpacity="0.4"/>
-  <text x="14" y="19" textAnchor="middle" fontFamily="'Instrument Serif', Georgia, serif" fontSize="13" fontStyle="italic" fill="#c8f060">C-T</text>
+  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="36" height="36" rx="8" fill="#c8f060" fillOpacity="0.15"/>
+  <rect width="36" height="36" rx="8" stroke="#c8f060" strokeWidth="1" strokeOpacity="0.4"/>
+  <text x="18" y="24" textAnchor="middle" fontFamily="Georgia, serif" fontSize="16" fontStyle="italic" fill="#c8f060">C-T</text>
 </svg>
   Cărpinișan<em style={{ color: 'var(--accent)', fontStyle: 'italic', marginLeft: 6 }}>Andrei</em>
   <span className="nav-subtitle" style={{ 
-  fontSize: '10px', 
-  color: 'var(--muted)', 
-  letterSpacing: '0.2em', 
-  textTransform: 'uppercase', 
-  marginLeft: 16,
-  fontFamily: "'DM Mono', monospace",
-  opacity: 0.6,
-}}>
-  Personal Projects
-</span>
+    fontSize: '10px', 
+    color: 'var(--muted)', 
+    letterSpacing: '0.2em', 
+    textTransform: 'uppercase', 
+    marginLeft: 16,
+    fontFamily: "'DM Mono', monospace",
+    opacity: 0.6,
+  }}>
+    Personal Projects
+  </span>
 </Link>
 
         {/* Desktop nav */}
