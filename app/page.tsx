@@ -121,7 +121,7 @@ export default function Home() {
                     <span key={t} style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '4px 10px', border: '1px solid var(--border)', color: 'var(--muted)', borderRadius: 2 }}>{t}</span>
                   ))}
                 </div>
-                <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid var(--border)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: 24 }}>
+                <div style={{ paddingTop: 16, borderTop: '1px solid var(--border)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: 24 }}>
                   View project →
                 </div>
               </div>
