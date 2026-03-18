@@ -87,17 +87,31 @@ The mechanism is triggered by a single button press — when activated, the moto
 3D printing is a big part of my workflow — I design parts for my own projects (like the Vox robot chassis) as well as standalone prints. There's something uniquely satisfying about designing something digitally and holding the physical result an hour later.`,
     tags: ['Blender', 'Unity', 'C#', '3D Printing', 'Game Dev'],
   },
+{
+  slug: 'weather-app',
+  num: '06',
+  name: 'Weather App',
+  emoji: '🌤️',
+  category: 'major',
+  shortDesc: 'A C# desktop weather app with real-time data from a public API and smooth UI animations.',
+  longDesc: `A desktop weather application built in C# that pulls real-time weather data from a public API and displays it with a clean, animated interface.
+
+The project was a deep dive into API integration, async programming in C#, and building polished UI experiences from scratch. Animations were implemented to make the app feel responsive and alive — temperature transitions, weather condition changes, and loading states all have dedicated motion.
+
+A practical tool that I actually use day-to-day.`,
+  tags: ['C#', 'API', 'Desktop', 'UI/UX', 'Animations'],
+},
   {
     slug: 'volume-knob',
-    num: '06',
+    num: '07',
     name: 'Potentiometer Volume Knob',
     emoji: '🎛️',
     category: 'tinkering',
-    shortDesc: 'A custom USB volume knob for my laptop — Arduino + potentiometer, reads as a HID device, just works.',
-    longDesc: `Classic "I had an itch" project. I wanted a physical volume knob for my laptop while working. Rather than buying one, I wired a potentiometer to an Arduino Pro Micro, flashed HID firmware so it registers as a USB media device, and 3D printed a small enclosure for it.
+    shortDesc: 'A custom USB volume knob for my laptop — Arduino + potentiometer, just works.',
+    longDesc: `Classic "I had an itch" project. I wanted a physical volume knob for my laptop while working. Rather than buying one, I wired a potentiometer to an Arduino Uno R3 and 3D printed a small enclosure for it.
 
-Plug it in, it just works — no drivers, no software. The whole thing took an afternoon and cost about €5 in parts. These are my favourite kind of projects: small, fast, solves a real problem.`,
-    tags: ['Arduino', 'HID', 'C++', '3D Printing', 'DIY'],
+The whole thing took an afternoon and cost about €11 in parts. These are my favourite kind of projects: small, fast, solves a real problem.`,
+    tags: ['Arduino', 'HID', 'C++', '3D Printing', 'DIY', 'Python'],
   },
 ]
 

@@ -1,3 +1,4 @@
+import BackButton from '@/components/BackButton'
 import { blogPosts } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -45,9 +46,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
     <div style={{ paddingTop: 100 }}>
       <div style={{ padding: '32px 48px 0' }}>
-        <Link href="/blog" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none' }}>
-          ← Back to blog
-        </Link>
+        <BackButton />
       </div>
 
       <article style={{ padding: '60px 48px 120px', maxWidth: 820 }}>

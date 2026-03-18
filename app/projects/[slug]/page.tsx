@@ -1,3 +1,4 @@
+import BackButton from '@/components/BackButton'
 import { projects } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -26,9 +27,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <div style={{ paddingTop: 100 }}>
       {/* Back */}
       <div style={{ padding: '32px 48px 0' }}>
-        <Link href="/#projects" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none' }}>
-          ← Back to projects
-        </Link>
+       <BackButton />
       </div>
 
       {/* Header */}
@@ -55,19 +54,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Photo placeholder */}
-      <section style={{ padding: '0 48px 80px' }}>
-        {project.slug === 'vox'
+      {project.slug === 'vox'
   ? <img src="/images/vox.png" alt="Vox robot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
   : project.slug === 'escape-room-ouija'
   ? <img src="/images/ouija.jpeg" alt="Ouija board puzzle" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
-  : (
-    <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, minHeight: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, color: 'var(--muted)', fontSize: 13 }}>
-      <span style={{ fontSize: 48 }}>{project.emoji}</span>
-      <span>Add photos here</span>
-    </div>
-  )
+  : null
 }
-      </section>
 
       {/* Other projects */}
       <section style={{ padding: '80px 48px', borderTop: '1px solid var(--border)' }}>

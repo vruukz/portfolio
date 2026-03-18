@@ -1,3 +1,4 @@
+'use client'
 const certs: Record<string, { name: string; issuer: string; year: string; image: string }> = {
   'cybersecurity': {
     name: 'Fundamentele Securității Cibernetice',
@@ -20,9 +21,12 @@ export default function CertPage({ params }: { params: { slug: string } }) {
   return (
     <div style={{ paddingTop: 100 }}>
       <div style={{ padding: '40px 48px 0' }}>
-        <a href="/#certifications" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none' }}>
-          ← Back
-        </a>
+        <button 
+  onClick={() => window.history.back()}
+  style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em', textTransform: 'uppercase', background: 'none', border: 'none', cursor: 'pointer' }}
+>
+  ← Back
+</button>
       </div>
       <section style={{ padding: '60px 48px 120px', maxWidth: 900 }}>
         <div style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 16 }}>{cert.issuer} — {cert.year}</div>
