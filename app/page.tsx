@@ -114,6 +114,7 @@ export default function Home() {
             : <div style={{ width: '100%', height: '100%', background: 'var(--bg)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 64 }}>{p.emoji}</div>
           }
         </div>
+        
       )}
       <div style={{ flex: 1 }}>
         <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.1em' }}>{p.num}{p.label ? ` — ${p.label}` : ''}</span>

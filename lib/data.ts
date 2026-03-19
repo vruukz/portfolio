@@ -1,5 +1,4 @@
 export type Project = {
-   github?: string
   slug: string
   num: string
   label?: string
@@ -10,6 +9,8 @@ export type Project = {
   tags: string[]
   featured?: boolean
   category: 'major' | 'tinkering'
+  github?: string
+  code?: string
 }
 
 export type BlogPost = {
@@ -62,7 +63,58 @@ Built on Linux, this project taught me a lot about networking, server administra
     longDesc: `A commissioned project for a local escape room business. The prop is a themed Ouija board with multiple LEDs that light up in carefully designed sequences — each sequence corresponds to a letter, and the player has to decode the sequence to find the hidden word and progress in the puzzle.
 
 The whole thing runs on an Arduino, with custom LED timing logic programmed in C++. The challenge was making the sequences intuitive enough to be solvable but not so obvious as to break the immersion. Delivered to the client and currently in active use.`,
-    tags: ['Arduino', 'C++', 'LEDs', 'Electronics', 'Client Work'],
+    code: `// int  led2=2; //Albastru - F - 1
+int  led3=3; //Galben - O - 2
+int  led4=4; //Verde - R - 3 - 7
+int  led5=5; //Rosu - E - 4 - 6
+int  led7=7; // RGB 3 culori - V - 5
+
+void setup()
+{
+    pinMode(led2,OUTPUT);    //Set the digital 8 port mode, OUTPUT: Output mode
+    pinMode(led3,OUTPUT);
+    pinMode(led4,OUTPUT);
+    pinMode(led5,OUTPUT);
+    pinMode(led7,OUTPUT);
+}
+void  loop()
+{  
+    digitalWrite(led2,HIGH); // ALBASTRU - F - 1
+    delay(1000);               
+    digitalWrite(led2,LOW);  
+    delay(1000);               
+
+    digitalWrite(led3,HIGH); // GALBEN - O - 2
+    delay(1000);            
+    digitalWrite(led3,LOW);
+    delay(1000);     
+
+    digitalWrite(led4,HIGH); // VERDE - R - 3
+    delay(1000);            
+    digitalWrite(led4,LOW);
+    delay(1000);  
+
+    digitalWrite(led5,HIGH); // ROSU - E - 4
+    delay(1000);            
+    digitalWrite(led5,LOW);
+    delay(1000);     
+
+    digitalWrite(led7,HIGH); // RGB 3 CULORI (ROSU) - V - 5
+    delay(1000);            
+    digitalWrite(led7,LOW);
+    delay(1000);  
+
+    digitalWrite(led5,HIGH); // ROSU - E - 6
+    delay(1000);            
+    digitalWrite(led5,LOW);
+    delay(1000);      
+
+    digitalWrite(led4,HIGH); // VERDE - R - 7
+    delay(1000);            
+    digitalWrite(led4,LOW);
+    delay(5000);       
+} `,
+tags: ['Arduino', 'C++', 'LEDs', 'Electronics', 'Client Work'],
   },
   {
     slug: 'escape-room-letterbox',
@@ -73,9 +125,9 @@ The whole thing runs on an Arduino, with custom LED timing logic programmed in C
     category: 'major',
     shortDesc: 'An automated letter box controlled by Arduino: press a button and a motor shoots out a letter. Built for a local escape room.',
     longDesc: `Another commissioned build for the same escape room client. A custom letter box with a motor mechanism controlled by an Arduino, powered by a portable power bank for wireless placement anywhere in the room.
-
 The mechanism is triggered by a single button press — when activated, the motor drives a letter out of the box as part of the room's narrative. The design had to be reliable (it runs dozens of times a day), compact, and wireless. Delivered and deployed.`,
-    tags: ['Arduino', 'C++', 'Motors', 'Electronics', 'Client Work'],
+        
+tags: ['Arduino', 'C++', 'Motors', 'Electronics', 'Client Work'],
   },
   {
     slug: 'game-design',
@@ -101,6 +153,7 @@ The mechanism is triggered by a single button press — when activated, the moto
 The project was a deep dive into API integration, async programming in C#, and building polished UI experiences from scratch. Animations were implemented to make the app feel responsive and alive — temperature transitions, weather condition changes, and loading states all have dedicated motion.
 
 A practical tool that I actually use day-to-day.`,
+  github: 'https://github.com/vruukz/WeatherApp',
   tags: ['C#', 'API', 'Desktop', 'UI/UX', 'Animations'],
 },
   {

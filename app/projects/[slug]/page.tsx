@@ -71,7 +71,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         ))}
       </section>
 
-      {project.slug === 'vox'
+{project.slug === 'weather-app' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <img src="/images/weather-app.png" alt="Weather App screenshot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  </section>
+)}
+      
+{project.slug === 'vox'
   ? <div style={{ display: 'flex', flexDirection: 'row', gap: 16, padding: '0 48px' }}>
       <img src="/images/vox.png" alt="Vox robot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
       <img src="/images/vox2.png" alt="Vox robot detail" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
@@ -80,6 +86,25 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   ? <img src="/images/ouija.jpeg" alt="Ouija board puzzle" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
   : null
 }
+
+{project.code && (
+  <section style={{ padding: '0 48px 80px' }}>
+    <h2 style={{ fontFamily: "'Instrument Serif'", fontSize: 28, fontStyle: 'italic', marginBottom: 24 }}>Source code</h2>
+    <pre style={{
+      background: 'var(--surface)',
+      border: '1px solid var(--border)',
+      borderRadius: 4,
+      padding: '32px',
+      overflowX: 'auto',
+      fontSize: 12,
+      lineHeight: 1.7,
+      color: 'var(--muted)',
+      fontFamily: "'DM Mono', monospace",
+    }}>
+      <code>{project.code}</code>
+    </pre>
+  </section>
+)}
 
       {/* Other projects */}
       <section style={{ padding: '80px 48px', borderTop: '1px solid var(--border)' }}>
