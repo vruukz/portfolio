@@ -6,6 +6,8 @@ Personal portfolio site for Cărpinișan Andrei, Automation & Robotics Engineer 
 ![TypeScript](https://img.shields.io/badge/TypeScript-blue)
 ![Vercel](https://img.shields.io/badge/Deployed-Vercel-black)
 
+<img width="1867" height="912" alt="image" src="https://github.com/user-attachments/assets/cd8a7cbd-f23f-43bd-bcad-9db5ca07bcd4" />
+
 ## Stack
 
 - **Framework:** Next.js 14 (App Router)
