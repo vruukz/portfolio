@@ -71,7 +71,7 @@ export default function Home() {
             at the Technical University of Cluj-Napoca. I build things that move, think, and sometimes both.
           </p>
           <div style={{ display: 'flex', gap: 40, paddingBottom: 4 }}>
-            {[['7', 'Projects'], ['2+', 'Yrs Exp.'], ['∞', 'Ideas']].map(([num, label]) => (
+            {[['14', 'Projects'], ['2+', 'Yrs Exp.'], ['∞', 'Ideas']].map(([num, label]) => (
               <div key={label} style={{ textAlign: 'center' }}>
                 <span style={{ fontFamily: "'Instrument Serif'", fontSize: 36, color: 'var(--accent2)', lineHeight: 1, display: 'block' }}>{num}</span>
                 <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', display: 'block', marginTop: 4 }}>{label}</span>
