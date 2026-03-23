@@ -10,6 +10,7 @@ export type Project = {
   featured?: boolean
   category: 'major' | 'tinkering'
   github?: string
+  github2?: string
   code?: string
 }
 
@@ -36,8 +37,8 @@ export const projects: Project[] = [
 
 The project currently supports voice commands and manual movement control. The roadmap includes computer vision for object and face recognition, and eventually self-navigation using ultrasonic sensors and computer vision.
 
-Building Vox meant working across the full stack: mechanical design, electronics, embedded programming, and AI integration. It's the project I'm most proud of.`, 
-github: 'https://github.com/vruukz/Vox-Robot',
+Building Vox meant working across the full stack: mechanical design, electronics, embedded programming, and AI integration. It's the project I'm most proud of.`,
+    github: 'https://github.com/vruukz/Vox-Robot',
     tags: ['Python', 'AI Integration', 'Raspberry Pi', '3D Printing', 'Blender', 'Voice Assistant'],
   },
   {
@@ -71,7 +72,7 @@ int  led7=7; // RGB 3 culori - V - 5
 
 void setup()
 {
-    pinMode(led2,OUTPUT);    //Set the digital 8 port mode, OUTPUT: Output mode
+    pinMode(led2,OUTPUT);
     pinMode(led3,OUTPUT);
     pinMode(led4,OUTPUT);
     pinMode(led5,OUTPUT);
@@ -79,42 +80,42 @@ void setup()
 }
 void  loop()
 {  
-    digitalWrite(led2,HIGH); // ALBASTRU - F - 1
+    digitalWrite(led2,HIGH);
     delay(1000);               
     digitalWrite(led2,LOW);  
     delay(1000);               
 
-    digitalWrite(led3,HIGH); // GALBEN - O - 2
+    digitalWrite(led3,HIGH);
     delay(1000);            
     digitalWrite(led3,LOW);
     delay(1000);     
 
-    digitalWrite(led4,HIGH); // VERDE - R - 3
+    digitalWrite(led4,HIGH);
     delay(1000);            
     digitalWrite(led4,LOW);
     delay(1000);  
 
-    digitalWrite(led5,HIGH); // ROSU - E - 4
+    digitalWrite(led5,HIGH);
     delay(1000);            
     digitalWrite(led5,LOW);
     delay(1000);     
 
-    digitalWrite(led7,HIGH); // RGB 3 CULORI (ROSU) - V - 5
+    digitalWrite(led7,HIGH);
     delay(1000);            
     digitalWrite(led7,LOW);
     delay(1000);  
 
-    digitalWrite(led5,HIGH); // ROSU - E - 6
+    digitalWrite(led5,HIGH);
     delay(1000);            
     digitalWrite(led5,LOW);
     delay(1000);      
 
-    digitalWrite(led4,HIGH); // VERDE - R - 7
+    digitalWrite(led4,HIGH);
     delay(1000);            
     digitalWrite(led4,LOW);
     delay(5000);       
-} `,
-tags: ['Arduino', 'C++', 'LEDs', 'Electronics', 'Client Work'],
+}`,
+    tags: ['Arduino', 'C++', 'LEDs', 'Electronics', 'Client Work'],
   },
   {
     slug: 'escape-room-letterbox',
@@ -125,9 +126,9 @@ tags: ['Arduino', 'C++', 'LEDs', 'Electronics', 'Client Work'],
     category: 'major',
     shortDesc: 'An automated letter box controlled by Arduino: press a button and a motor shoots out a letter. Built for a local escape room.',
     longDesc: `Another commissioned build for the same escape room client. A custom letter box with a motor mechanism controlled by an Arduino, powered by a portable power bank for wireless placement anywhere in the room.
+
 The mechanism is triggered by a single button press — when activated, the motor drives a letter out of the box as part of the room's narrative. The design had to be reliable (it runs dozens of times a day), compact, and wireless. Delivered and deployed.`,
-        
-tags: ['Arduino', 'C++', 'Motors', 'Electronics', 'Client Work'],
+    tags: ['Arduino', 'C++', 'Motors', 'Electronics', 'Client Work'],
   },
   {
     slug: 'game-design',
@@ -141,24 +142,134 @@ tags: ['Arduino', 'C++', 'Motors', 'Electronics', 'Client Work'],
 3D printing is a big part of my workflow — I design parts for my own projects (like the Vox robot chassis) as well as standalone prints. There's something uniquely satisfying about designing something digitally and holding the physical result an hour later.`,
     tags: ['Blender', 'Unity', 'C#', '3D Printing', 'Game Dev'],
   },
-{
-  slug: 'weather-app',
-  num: '06',
-  name: 'Weather App',
-  emoji: '🌤️',
-  category: 'major',
-  shortDesc: 'A C# desktop weather app with real-time data from a public API and smooth UI animations.',
-  longDesc: `A desktop weather application built in C# that pulls real-time weather data from a public API and displays it with a clean, animated interface.
+  {
+    slug: 'weather-app',
+    num: '06',
+    name: 'Weather App',
+    emoji: '🌤️',
+    category: 'major',
+    shortDesc: 'A C# desktop weather app with real-time data from a public API and smooth UI animations.',
+    longDesc: `A desktop weather application built in C# that pulls real-time weather data from a public API and displays it with a clean, animated interface.
 
 The project was a deep dive into API integration, async programming in C#, and building polished UI experiences from scratch. Animations were implemented to make the app feel responsive and alive — temperature transitions, weather condition changes, and loading states all have dedicated motion.
 
 A practical tool that I actually use day-to-day.`,
-  github: 'https://github.com/vruukz/WeatherApp',
-  tags: ['C#', 'API', 'Desktop', 'UI/UX', 'Animations'],
-},
+    github: 'https://github.com/vruukz/WeatherApp',
+    tags: ['C#', 'API', 'Desktop', 'UI/UX', 'Animations'],
+  },
+  {
+    slug: 'bookshelf',
+    num: '07',
+    name: 'TheBookshelf — Flutter Book Reader',
+    emoji: '📚',
+    category: 'major',
+    shortDesc: 'A local book reading app for Android with library management, progress tracking, bookmarks, and reading stats.',
+    longDesc: `A full-featured local e-book reader built in Flutter, targeting Android. No accounts, no cloud, no DRM — just your files, stored and read locally.
+
+The app supports EPUB, PDF, TXT, and MOBI formats. It reads embedded metadata automatically, tracks reading progress per book, and lets you add bookmarks. A stats screen shows reading time, books completed, and library breakdown by format.
+
+The reader supports dark and sepia themes, adjustable font size, and tap-to-reveal navigation controls. The library view has search, filter by status (reading/finished/unread), sort options, and both list and grid layouts.
+
+Built with Flutter and Provider for state management. The dark aesthetic — black background, lime green accents — mirrors my personal site.`,
+    github: 'https://github.com/vruukz/TheBookshelf',
+    tags: ['Flutter', 'Android', 'Dart', 'EPUB', 'PDF', 'Mobile'],
+  },
+  {
+    slug: 'soundvault',
+    num: '08',
+    name: 'SoundVault — Flutter Music Player',
+    emoji: '🎵',
+    category: 'major',
+    shortDesc: 'A local music player for Android & Windows with 3 switchable visualizers, auto cover art, and media notification support.',
+    longDesc: `A local music player built in Flutter that runs on both Android and Windows. No streaming, no accounts — add your own files and play them.
+
+The standout feature is the visualizer: three switchable modes (bar equalizer, waveform, radial) rendered in real time with custom Flutter painters. The radial mode rotates as music plays; the waveform uses cubic bezier curves for smooth animation.
+
+Other features: folder watching (pick a folder, the app auto-scans for new files on launch), embedded metadata reading from FLAC/MP3 tags via audiotags, automatic cover art fetching from the iTunes API as fallback, shuffle and repeat modes, an up-next queue, and full media notification and lock screen controls on Android via audio_service.
+
+The library organises songs into Songs, Albums, and Artists views. Adding files reads title, artist, album, duration, and cover art directly from the file tags — no manual entry needed.`,
+    github: 'https://github.com/vruukz/SoundVault',
+    tags: ['Flutter', 'Android', 'Windows', 'Dart', 'Audio', 'Visualizer'],
+  },
+  {
+    slug: 'weather-flutter',
+    num: '09',
+    name: 'Weather App — Flutter',
+    emoji: '🌦️',
+    category: 'major',
+    shortDesc: 'A Flutter weather app for Android, Windows and Linux, with real-time forecasts, location detection, android and windows widget, and a clean dark UI.',
+    longDesc: `A Flutter reimagining of my original C# weather app, rebuilt for Android (Homescreen Widget included), Windows (Desktop Widget included, as a different app) and Linux with a cleaner architecture and a more polished interface.
+
+Pulls real-time weather data from a public API, detects your current location automatically, and displays current conditions alongside a multi-day forecast. The UI is built around the same dark aesthetic as my other Flutter apps — black background, green accents, minimal chrome.
+
+A personal exercise in cross-platform UI design and API integration with Flutter.`,
+    github: 'https://github.com/vruukz/WeatherApp-Flutter',
+    github2: 'https://github.com/vruukz/WeatherWidget-Windows',
+    tags: ['Flutter', 'Android', 'Windows', 'Linux', 'Dart', 'API', 'Widget', 'Weather', 'Mobile'],
+  },
+  {
+    slug: 'calculator',
+    num: '10',
+    name: 'Calculator — Flutter',
+    emoji: '🔢',
+    category: 'major',
+    shortDesc: 'A Flutter calculator app for Android with a clean dark interface and standard arithmetic operations.',
+    longDesc: `A clean, minimal calculator built in Flutter for Android. Standard arithmetic operations, a clear history display, and a keyboard layout designed for one-handed use.
+
+The project was a focused exercise in Flutter layout, state management, and expression parsing. What looks simple on the surface involves a surprising amount of edge-case handling — chained operations, decimal inputs, negative numbers, and clear/reset behaviour all need careful logic.
+
+Part of a broader suite of Flutter utility apps built with a consistent dark design language.`,
+    github: 'https://github.com/vruukz/Calculator',
+    tags: ['Flutter', 'Android', 'Dart', 'Mobile', 'UI/UX'],
+  },
+  {
+    slug: 'notes',
+    num: '11',
+    name: 'NotesApp — Flutter',
+    emoji: '📝',
+    category: 'major',
+    shortDesc: 'A local notes app for Android with create, edit, delete, and persistent storage — no account needed.',
+    longDesc: `A straightforward local notes app built in Flutter. Notes are stored entirely on-device — no sync, no account, no cloud. Open it, write something, it's there when you come back.
+
+Supports creating, editing, and deleting notes with a clean list view. Persistent storage is handled locally so nothing is ever sent anywhere.
+
+Built as part of a series of Flutter utility apps, with the same dark design system shared across all of them.`,
+    github: 'https://github.com/vruukz/NotesApp',
+    tags: ['Flutter', 'Android', 'Dart', 'Mobile', 'Local Storage'],
+  },
+  {
+    slug: 'calendar',
+    num: '12',
+    name: 'Calendar — Flutter',
+    emoji: '📅',
+    category: 'major',
+    shortDesc: 'A Flutter calendar app for Android with event creation, a monthly view, and local persistence.',
+    longDesc: `A calendar app built in Flutter for Android. Displays a full monthly view with navigation, lets you tap any day to add or view events, and stores everything locally on the device.
+
+The focus was on building a functional, well-structured calendar widget from scratch in Flutter — managing the grid layout, day selection state, and event association per date. All data is persisted locally with no backend required.
+
+Part of the same dark-themed Flutter utility suite.`,
+    github: 'https://github.com/vruukz/Calendar',
+    tags: ['Flutter', 'Android', 'Dart', 'Mobile', 'Productivity'],
+  },
+  {
+    slug: 'clock',
+    num: '13',
+    name: 'Clock — Flutter',
+    emoji: '🕐',
+    category: 'major',
+    shortDesc: 'A Flutter clock app for Android with an analog face, digital display, and stopwatch/timer functionality.',
+    longDesc: `A clock app built in Flutter featuring both an analog and digital display, a stopwatch, and a countdown timer.
+
+The analog face is drawn with a custom CustomPainter — hands, tick marks, and the face itself are all rendered programmatically rather than using images. The stopwatch and timer share the same underlying time logic, just displayed differently.
+
+A clean exercise in Flutter's animation system and custom painting API, wrapped in the same minimal dark UI as the rest of the suite.`,
+    github: 'https://github.com/vruukz/Clock',
+    tags: ['Flutter', 'Android', 'Dart', 'Mobile', 'Animations'],
+  },
   {
     slug: 'volume-knob',
-    num: '07',
+    num: '14',
     name: 'Potentiometer Volume Knob',
     emoji: '🎛️',
     category: 'tinkering',
@@ -205,59 +316,39 @@ const int IN4 = 5;
 const int ENB = 10;
 
 void setup() {
-  // Set all control pins as outputs
   pinMode(ENA, OUTPUT);
   pinMode(ENB, OUTPUT);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
-
-  // Initial stop
   stopMotors();
-
-  // Wait 5 seconds after turning on
   delay(5000);
 }
 
 void loop() {
-  // Move forward for 2 seconds
   moveForward();
   delay(2000);
-
-  // Move backward for 2 seconds
   moveBackward();
   delay(2000);
-
-  // Stop for 5 seconds
   stopMotors();
   delay(5000);
 }
 
 void moveForward() {
-  // Left motor forward
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-
-  // Right motor forward
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
-
-  // Enable motors
-  analogWrite(ENA, 200); // Speed (0-255)
+  analogWrite(ENA, 200);
   analogWrite(ENB, 200);
 }
 
 void moveBackward() {
-  // Left motor backward
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
-
-  // Right motor backward
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
-
-  // Enable motors
   analogWrite(ENA, 200);
   analogWrite(ENB, 200);
 }
@@ -278,57 +369,37 @@ from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import serial
 
-// Define serial port and baud rate
-arduino_port = "COM10"  # Adjust based on your system
+arduino_port = "COM10"
 baud_rate = 9600
 
-// Attempt to establish serial connection
 try:
-    ser = serial.Serial(arduino_port, baud_rate, timeout=0.05)  # Reduce timeout for faster reads
+    ser = serial.Serial(arduino_port, baud_rate, timeout=0.05)
     print("Serial connection established.")
 except serial.SerialException as e:
     print(f"Failed to connect: {e}")
     exit(1)
 
-// Initialize audio control interface
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
     IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
 volume = cast(interface, POINTER(IAudioEndpointVolume))
 
-// Initialize previous value for smoothing
 previous_volume = 0.0
-alpha = 0.1  ## Smoothing factor (0 = no smoothing, 1 = instant changes)
+alpha = 0.1
 
 while True:
     if ser.in_waiting > 0:
         try:
-            // Read potentiometer value from serial
             raw_data = ser.read_until().decode('utf-8').strip()
-            if raw_data.isdigit():  # Check if data is numeric
+            if raw_data.isdigit():
                 value = int(raw_data)
-                print(f"Raw potentiometer value: {value}")
-
-                // Ensure value is within expected range
                 if 0 <= value <= 1023:
-                    # Map potentiometer value (0-1023) to volume level (0.0-1.0)
                     new_volume = value / 1023
-
-                    // Apply smoothing
                     smoothed_volume = alpha * new_volume + (1 - alpha) * previous_volume
                     previous_volume = smoothed_volume
-
-                    print(f"Smoothed volume: {smoothed_volume * 100}%")
-
-                    // Set system volume
                     volume.SetMasterVolumeLevelScalar(smoothed_volume, None)
-                else:
-                    print(f"Invalid value: {value}")
-
         except Exception as e:
             print(f"Error: {e}")
-
-
 
 ## The enclosure
 

@@ -62,6 +62,25 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     ↗ View on GitHub
   </a>
 )}
+
+{project.github2 && (
+  <a href={project.github2} target="_blank" rel="noopener noreferrer" style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 24,
+    padding: '12px 24px',
+    border: '1px solid var(--border)',
+    color: 'var(--accent)',
+    textDecoration: 'none',
+    fontSize: 12,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
+  }}>
+    ↗ View on GitHub (Windows Widget)
+  </a>
+)}
+
       </section>
 
       {/* Content */}
@@ -76,7 +95,58 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <img src="/images/weather-app.png" alt="Weather App screenshot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
   </section>
 )}
-      
+
+{project.slug === 'bookshelf' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 16 }}>
+      <img src="/images/bookshelf.png" alt="TheBookShelf app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+      <img src="/images/bookshelf2.png" alt="TheBookShelf app 2" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+    </div>
+  </section>
+)}
+
+{project.slug === 'soundvault' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 16 }}>
+      <img src="/images/soundvault.png" alt="Sound Vault app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+      <img src="/images/soundvault2.png" alt="Sound Vault app 2" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+    </div>
+  </section>
+)}
+
+{project.slug === 'weather-flutter' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 16 }}>
+      <img src="/images/weather-flutter.jpeg" alt="Weather Flutter app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+      <img src="/images/weather-flutter2.jpeg" alt="Weather Flutter app 2" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+    </div>
+  </section>
+)}
+
+{project.slug === 'calculator' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <img src="/images/calculator.png" alt="Calculator app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  </section>
+)}
+
+{project.slug === 'notes' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <img src="/images/notes.png" alt="NotesApp" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  </section>
+)}
+
+{project.slug === 'calendar' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <img src="/images/calendar.png" alt="Calendar app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  </section>
+)}
+
+{project.slug === 'clock' && (
+  <section style={{ padding: '0 48px 40px' }}>
+    <img src="/images/clock.jpeg" alt="Clock app" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
+  </section>
+)}
+
 {project.slug === 'vox'
   ? <div style={{ display: 'flex', flexDirection: 'row', gap: 16, padding: '0 48px' }}>
       <img src="/images/vox.png" alt="Vox robot" style={{ width: '50%', borderRadius: 4, border: '1px solid var(--border)' }} />
