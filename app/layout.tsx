@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Nav from '@/components/Nav'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'Cărpinișan Andrei — Robotics & AI Engineer',
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span>Cluj-Napoca, Romania</span>
           <span style={{ color: 'var(--accent)' }}>Open to opportunities ✦</span>
         </footer>
+        <Analytics />
       </body>
     </html>
   )
